@@ -1,0 +1,10 @@
+version: "3"
+services:
+  httpd:
+    image: 
+      build: 
+        context: /var/lib/jenkins/workspace/httpd
+        dockerfile: Dockerfile
+      ports:
+        - 5000:80
+      
