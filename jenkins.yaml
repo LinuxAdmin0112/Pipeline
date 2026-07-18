@@ -1,196 +1,59 @@
-configuration-as-code: {
-  }
 credentials:
   system:
     domainCredentials:
-    - credentials:
-      - usernamePassword:
-          description: "github"
-          id: "github"
-          password: "{AQAAABAAAAAwt3aDRNCrfoypME2cMQFxJpl8QJA+Azgb+97r+PBf705XZtqOpz9OvFgxZMFvff2wxOGJKbFjz9O185htg9YXEw==}"
-          scope: GLOBAL
-          username: "rameshlinuxadmin"
-      - usernamePassword:
-          description: "docker-creds"
-          id: "docker-creds"
-          password: "{AQAAABAAAAAw8K+1N/FI81lyXCp1mmYykgv6DBaG+Ldn8EgTe4KsPMwdwH4oQK5HY+p3yKQSGBg7+8Qrbszte73dhR47kuC1mQ==}"
-          scope: GLOBAL
-          username: "ramesh0112"
+      - credentials:
+          - usernamePassword:
+              id: "github"
+              description: "GitHub Credentials"
+              scope: GLOBAL
+              username: "rameshlinuxadmin"
+              password: "${GITHUB_PASSWORD}"
+
+          - usernamePassword:
+              id: "docker-creds"
+              description: "Docker Hub Credentials"
+              scope: GLOBAL
+              username: "ramesh0112"
+              password: "${DOCKER_PASSWORD}"
+
 jenkins:
+  systemMessage: "Jenkins managed by Configuration as Code"
+
+  numExecutors: 2
+
+  mode: NORMAL
+
+  quietPeriod: 5
+
+  scmCheckoutRetryCount: 0
+
+  remotingSecurity:
+    enabled: true
+
   authorizationStrategy:
     loggedInUsersCanDoAnything:
       allowAnonymousRead: false
-  crumbIssuer: "standard"
-  disableRememberMe: false
-  disabledAdministrativeMonitors:
-  - "jenkins.diagnostics.ControllerExecutorsNoAgents"
-  - "jenkins.security.csp.impl.CspRecommendation"
-  labelAtoms:
-  - name: "built-in"
-  markupFormatter: "plainText"
-  mode: NORMAL
-  nodeMonitors:
-  - "architecture"
-  - "clock"
-  - diskSpace:
-      freeSpaceThreshold: "1GiB"
-      freeSpaceWarningThreshold: "2GiB"
-  - "swapSpace"
-  - tmpSpace:
-      freeSpaceThreshold: "1GiB"
-      freeSpaceWarningThreshold: "2GiB"
-  - "responseTime"
-  numExecutors: 2
-  primaryView:
-    all:
-      name: "all"
-  projectNamingStrategy: "standard"
-  quietPeriod: 5
-  remotingSecurity:
-    enabled: true
-  scmCheckoutRetryCount: 0
+
   securityRealm:
     local:
       allowsSignup: false
-      enableCaptcha: false
       users:
-      - id: "admin"
-        name: "admin"
-        properties:
-        - theme:
-            theme: "noOp"
-        - "consoleUrlProvider"
-        - "viewsTabBar"
-        - myView:
-            viewsTabBar: "standard"
-        - preferredProvider:
-            providerId: "default"
-        - "timezone"
-        - "experimentalFlags"
-        - mailer:
-            emailAddress: "admin@abc.com"
-        - "apiToken"
-  slaveAgentPort: -1
-  updateCenter:
-    sites:
-    - id: "default"
-      url: "https://updates.jenkins.io/update-center.json"
-  views:
-  - all:
-      name: "all"
-  viewsTabBar: "standard"
-globalCredentialsConfiguration:
-  configuration:
-    providerFilter: "none"
-    typeFilter: "none"
-appearance:
-  pipelineGraphView:
-    showGraphOnBuildPage: false
-    showGraphOnJobPage: false
-    showStageDurations: false
-    showStageNames: false
-  prism:
-    theme: PRISM
-  themeManager:
-    disableUserThemes: false
-    theme: "noOp"
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  contentSecurityPolicy:
-    enforce: false
-  cps:
-    hideSandbox: false
-  gitHooks:
-    allowedOnAgents: false
-    allowedOnController: false
-  gitHostKeyVerificationConfiguration:
-    sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
-  prism:
-    protectSourceCodeByPermission: false
-  scriptApproval:
-    approvedScriptHashes:
-    - "SHA512:161b16f4da7492aa6991bc542a21aa2fa34f6d55c4aa7113701ba8a00bc782d3aec59a73df23c74788ead3ebccdbdc2747e2b41e23bd3fc3cc80ac68f9afa63a"
-    - "SHA512:de4948f0a5cae7db776e7bb65634befffa802065223ed8a8a663886ca186b0b1ecc80870b97d0ebdbda68976c574b61e796f0783beae5c34acef16cd914ab479"
-    forceSandbox: false
-unclassified:
-  buildDiscarders:
-    configuredBuildDiscarders:
-    - "jobBuildDiscarder"
-  buildStepOperation:
-    enabled: false
-  email-ext:
-    adminRequiredForTemplateTesting: false
-    allowUnregisteredEnabled: false
-    charset: "UTF-8"
-    debugMode: false
-    defaultAttachBuildLog: 0
-    defaultBody: |-
-      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+        - id: admin
+          password: "${JENKINS_ADMIN_PASSWORD}"
 
-      Check console output at $BUILD_URL to view the results.
-    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
-    defaultTriggerIds:
-    - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
-    maxAttachmentSize: -1
-    maxAttachmentSizeMb: -1
-    precedenceBulk: false
-    throttlingEnabled: false
-    watchingEnabled: false
-  enrichedSummaryConfig:
-    enrichedSummaryEnabled: false
-    globalBuildScanDetection: false
-    httpClientDelayBetweenRetriesInSeconds: 1
-    httpClientMaxRetries: 3
-    httpClientTimeoutInSeconds: 1
-  fingerprints:
-    fingerprintCleanupDisabled: false
-    storage: "file"
-  gitHubConfiguration:
-    apiRateLimitChecker: ThrottleForNormalize
-  gitHubPluginConfig:
-    hookUrl: "http://localhost:8080/github-webhook/"
-  globalTimeOutConfiguration:
-    operations:
-    - "abortOperation"
-    overwriteable: false
-  injectionConfig:
-    allowUntrusted: false
-    checkForBuildAgentErrors: false
-    enabled: false
-    enforceUrl: false
-    injectCcudExtension: false
-    injectMavenExtension: false
-  junitTestResultStorage:
-    storage: "file"
+  crumbIssuer: standard
+
+unclassified:
   location:
-    adminAddress: "address not configured yet <nobody@nowhere>"
     url: "http://localhost:8080/"
-  mailer:
-    charset: "UTF-8"
-    useSsl: false
-    useTls: false
-  pollSCM:
-    pollingThreadCount: 10
-  scmGit:
-    addGitTagAction: false
-    allowSecondFetch: false
-    createAccountBasedOnEmail: false
-    disableGitToolChooser: false
-    hideCredentials: false
-    showEntireCommitSummaryInChanges: false
-    useExistingAccountWithSameEmail: false
-  timestamper:
-    allPipelines: false
-    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
-    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+    adminAddress: "admin@abc.com"
+
 tool:
   git:
     installations:
-    - home: "/usr/bin/git"
-      name: "Default"
+      - name: "Default"
+        home: "/usr/bin/git"
+
   mavenGlobalConfig:
-    globalSettingsProvider: "standard"
-    settingsProvider: "standard"
+    globalSettingsProvider: standard
+    settingsProvider: standard
