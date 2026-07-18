@@ -118,8 +118,6 @@ security:
     allowedOnController: false
   gitHostKeyVerificationConfiguration:
     sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
-  globalJobDslSecurityConfiguration:
-    useScriptSecurity: true
   prism:
     protectSourceCodeByPermission: false
   queueItemAuthenticator: {
