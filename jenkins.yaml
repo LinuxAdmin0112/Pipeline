@@ -16,8 +16,6 @@ credentials:
           password: "{AQAAABAAAAAw8K+1N/FI81lyXCp1mmYykgv6DBaG+Ldn8EgTe4KsPMwdwH4oQK5HY+p3yKQSGBg7+8Qrbszte73dhR47kuC1mQ==}"
           scope: GLOBAL
           username: "ramesh0112"
-      domain: {
-        }
 jenkins:
   authorizationStrategy:
     loggedInUsersCanDoAnything:
@@ -29,8 +27,6 @@ jenkins:
   - "jenkins.security.csp.impl.CspRecommendation"
   labelAtoms:
   - name: "built-in"
-  log: {
-    }
   markupFormatter: "plainText"
   mode: NORMAL
   nodeMonitors:
@@ -88,8 +84,6 @@ globalCredentialsConfiguration:
     providerFilter: "none"
     typeFilter: "none"
 appearance:
-  consoleUrlProvider: {
-    }
   pipelineGraphView:
     showGraphOnBuildPage: false
     showGraphOnJobPage: false
@@ -105,14 +99,10 @@ security:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-  apiTokenProperty: {
-    }
   contentSecurityPolicy:
     enforce: false
   cps:
     hideSandbox: false
-  crumb: {
-    }
   gitHooks:
     allowedOnAgents: false
     allowedOnController: false
@@ -120,35 +110,17 @@ security:
     sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
   prism:
     protectSourceCodeByPermission: false
-  queueItemAuthenticator: {
-    }
   scriptApproval:
     approvedScriptHashes:
     - "SHA512:161b16f4da7492aa6991bc542a21aa2fa34f6d55c4aa7113701ba8a00bc782d3aec59a73df23c74788ead3ebccdbdc2747e2b41e23bd3fc3cc80ac68f9afa63a"
     - "SHA512:de4948f0a5cae7db776e7bb65634befffa802065223ed8a8a663886ca186b0b1ecc80870b97d0ebdbda68976c574b61e796f0783beae5c34acef16cd914ab479"
     forceSandbox: false
-  updateSiteWarningsConfiguration: {
-    }
 unclassified:
-  administrativeMonitorsConfiguration: {
-    }
-  artifactManager: {
-    }
   buildDiscarders:
     configuredBuildDiscarders:
     - "jobBuildDiscarder"
   buildStepOperation:
     enabled: false
-  casCGlobalConfig: {
-    }
-  computerRetentionCheckInterval: {
-    }
-  defaultDisplayUrlProvider: {
-    }
-  defaultFolderConfiguration: {
-    }
-  defaultView: {
-    }
   email-ext:
     adminRequiredForTemplateTesting: false
     allowUnregisteredEnabled: false
@@ -162,8 +134,6 @@ unclassified:
     defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
     defaultTriggerIds:
     - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
-    mailAccount: {
-      }
     maxAttachmentSize: -1
     maxAttachmentSizeMb: -1
     precedenceBulk: false
@@ -175,8 +145,6 @@ unclassified:
     httpClientDelayBetweenRetriesInSeconds: 1
     httpClientMaxRetries: 3
     httpClientTimeoutInSeconds: 1
-  envVarsFilter: {
-    }
   fingerprints:
     fingerprintCleanupDisabled: false
     storage: "file"
@@ -184,16 +152,10 @@ unclassified:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     hookUrl: "http://localhost:8080/github-webhook/"
-  globalDefaultFlowDurabilityLevel: {
-    }
-  globalLibraries: {
-    }
   globalTimeOutConfiguration:
     operations:
     - "abortOperation"
     overwriteable: false
-  globalUntrustedLibraries: {
-    }
   injectionConfig:
     allowUntrusted: false
     checkForBuildAgentErrors: false
@@ -210,24 +172,8 @@ unclassified:
     charset: "UTF-8"
     useSsl: false
     useTls: false
-  metricsAccessKey: {
-    }
-  myView: {
-    }
-  nodeProperties: {
-    }
-  plugin: {
-    }
   pollSCM:
     pollingThreadCount: 10
-  projectNamingStrategy: {
-    }
-  proxyConfigurationManager: {
-    }
-  quietPeriod: {
-    }
-  resourceRoot: {
-    }
   scmGit:
     addGitTagAction: false
     allowSecondFetch: false
@@ -236,18 +182,10 @@ unclassified:
     hideCredentials: false
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
-  scmRetryCount: {
-    }
-  shell: {
-    }
   timestamper:
     allPipelines: false
     elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
     systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
-  usageStatistics: {
-    }
-  viewsTabBar: {
-    }
 tool:
   git:
     installations:
